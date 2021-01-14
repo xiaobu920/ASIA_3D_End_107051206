@@ -6009,7 +6009,7 @@ MonoBehaviour:
   stopDistance: 1.5
   AttackCD: 2.5
   atkPoint: {fileID: 1362196113}
-  atkLength: 1
+  atkLength: 1.5
 --- !u!195 &1260065749
 NavMeshAgent:
   m_ObjectHideFlags: 0
