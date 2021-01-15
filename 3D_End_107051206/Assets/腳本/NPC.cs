@@ -15,10 +15,16 @@ public class NPC : MonoBehaviour
     [Header("對話間隔")]
     public float interval = 0.2f;
 
+
+
+
     /// <summary>
     /// 玩家是否進入感應區
     /// </summary>
     public bool playerInArea;
+    private Animator ani;
+
+
 
     // 定義列舉 eunm (下拉式選單 - 只能選一個)
     public enum NPCSate
@@ -47,6 +53,10 @@ public class NPC : MonoBehaviour
         print("2秒後");
     }
     */
+    private void Awake()
+    {
+        ani = GetComponent<Animator>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -55,6 +65,7 @@ public class NPC : MonoBehaviour
             playerInArea = true;
             StartCoroutine(Dialog());
         }
+        
     }
     private void OnTriggerExit(Collider other)
     {
