@@ -64,6 +64,7 @@ public class NPC : MonoBehaviour
         {
             playerInArea = true;
             StartCoroutine(Dialog());
+            ani.SetBool("對話開關", true);
         }
         
     }
@@ -73,6 +74,7 @@ public class NPC : MonoBehaviour
         {
             playerInArea = false;
             Stopdialog();
+            ani.SetBool("對話開關", false);
         }
     }
 
@@ -115,6 +117,7 @@ public class NPC : MonoBehaviour
 
         //要說的對話
         string dialogString = data.dialogA;
+        
 
         switch (state)
         {

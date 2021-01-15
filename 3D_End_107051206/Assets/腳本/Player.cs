@@ -5,8 +5,7 @@ using System;
 
 
 public class Player : MonoBehaviour
-{
-    public float HP = 1000;
+{    
     public Animator ani;
     public int comboatkCount;
     private float timer;
@@ -19,6 +18,7 @@ public class Player : MonoBehaviour
     public float atk = 70;
     [Header("連擊間隔"), Range(0, 5)]
     public float interval = 1;
+    public float HP = 1000;
 
     private void Awake()
     {
@@ -35,21 +35,26 @@ public class Player : MonoBehaviour
         if (HP <= 0)
         {
             Dead();
+            
         }
     }
 
     private void Dead()
     {
         ani.SetTrigger("死亡觸發");
+        
         vThirdPersonController vt = GetComponent<vThirdPersonController>();
         vt.lockMovement = true;
         vt.lockRotation = true;
-                
+
+        
+
     }
 
     private void Update()
     {
-        Attack();                
+        Attack();
+        QuitGame();
     }
 
 
@@ -99,6 +104,17 @@ public class Player : MonoBehaviour
     //射線擊中的物件
     private RaycastHit hit;
 
+    
+    public void QuitGame()
+    {
+        if (Input.GetKeyDown("escape"))
+        {
+            print("退出遊戲");
+            Application.Quit();
+        }
+
+    }
+            
 
     
 }

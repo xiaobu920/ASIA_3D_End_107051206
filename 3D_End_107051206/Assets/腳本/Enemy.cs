@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public float atkLength;
     [Header("攻擊力"), Range(0, 500)]
     public float atk = 30;
-    public float HP = 300;
+    public float HP = 3000;
 
 
     private Transform player;
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// 追蹤
     /// </summary>
-    private void Track()
+    void Track()
     {
         nav.SetDestination(player.position);        
         ani.SetBool("戰鬥模式", nav.remainingDistance > stopDistance);
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
     /// <summary>
     /// 攻擊
     /// </summary>
-    private void Attack()
+     void Attack()
     {
         if (nav.remainingDistance < stopDistance)
         {
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
                      hit.collider.GetComponent<Player>().Damage(atk);
                 }
             }
-            
+                       
         }
     }
 

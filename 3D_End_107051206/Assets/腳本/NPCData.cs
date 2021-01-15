@@ -17,4 +17,8 @@ public class NPCData : ScriptableObject
     public int count;
     [Header("已取得項目數量")]
     public int countCurrent;
+   
+
+
+    
 }
